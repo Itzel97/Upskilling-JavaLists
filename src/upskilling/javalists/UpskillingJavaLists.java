@@ -71,19 +71,60 @@ public class UpskillingJavaLists {
             System.out.println("Consulta primer elemento: " + cola.peek());
            System.out.println("que elemento saldra despues de la cola : " + cola.element());
            System.out.println("Sacando elemento de la cola: " + cola.remove());*/
-           contarBinario(3);
+           contarBinario(8);
         
         
     }
     
     public static void contarBinario (int num){
     
-        Queue <Integer> cola = new ArrayDeque <Integer> ();
-        int i = 0;
-        while (i < num){
-            
+        Queue <String> cola = new ArrayDeque <String> ();
+        int i = 1;
+
+        while (i <= num){
+
+
+     /*       if(cola.peek() != "1"){
+                cola.add("1");
+                System.out.println(cola.poll());
+                cola.add("1");
+            }else{
+                cola.add("1");
+                System.out.println(cola.peek());
+            }*/
+
+            if((cola.peek() != "1") && (i%2 != 0))
+                cola.add("1");
+
+            String x = cola.peek();
+
+            if((i <= num) && (i%2 != 0)){
+                cola.add( x + "0");
+                i++;
+
+            }else if ((i <= num) ){
+
+                if(x == "1"){
+                    cola.add( x + "1");
+                    i++;
+                    cola.poll();
+
+                }else{
+                    cola.poll();
+                }
+
+            }
+
+            System.out.println(cola.peek());
+
+
+
+
+
+
+
         
-            if ( cola.size() == 0 ){            
+            /*if ( cola.size() == 0 ){
                 cola.add(1);
             } else {
             
@@ -96,9 +137,8 @@ public class UpskillingJavaLists {
                     cola.poll();
                 }
             }
-            
-            System.out.println(cola.peek());
-            i ++;
+            */
+
         }
         
         
